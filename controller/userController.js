@@ -100,7 +100,7 @@ export const ForgotPassword = async(req,res)=>{
                 Name : find_User.Name,
                 Email : find_User.Email
             })
-            const link = `https://password-reset-0miu.onrender.com/ResetPassword/${find_User._id}/${ResetString}/${token}`
+            const link = `https://passwordreset-bb6e.onrender.com/ResetPassword/${find_User._id}/${ResetString}/${token}`
 
             // for Sending mails - nodemailer
             var transporter = nodemailer.createTransport({
