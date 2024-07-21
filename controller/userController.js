@@ -100,7 +100,7 @@ export const ForgotPassword = async(req,res)=>{
                 Name : find_User.Name,
                 Email : find_User.Email
             })
-            const link = `${process.env.URL}ResetPassword/${find_User._id}/${ResetString}/${token}`
+            const link = `http://localhost:3000/ResetPassword/${find_User._id}/${ResetString}/${token}`
 
             // for Sending mails - nodemailer
             var transporter = nodemailer.createTransport({
