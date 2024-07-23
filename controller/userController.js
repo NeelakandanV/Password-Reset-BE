@@ -24,15 +24,15 @@ export const LoginUser = async(req,res)=>{
                     res.status(200).send({message:"Login Successful",token})
                 }
                 else{
-                    res.status(401).send("Incorrect Password!")
+                    res.status(401).send({message:"Incorrect Password!"})
                 }
             }
             else{
-                res.status(400).send("Password required")
+                res.status(400).send({message:"Password required"})
             }
         }
         else{
-            res.status(400).send({"Meassage":"EmailId not found!"})
+            res.status(400).send({message:"EmailId not found!"})
         }
     }
     catch(err){
@@ -51,10 +51,10 @@ export const CreateUser = async(req,res)=>{
             req.body.Password = hashedPassword;
             const UserData = await User.create(req.body);
             await UserData.save();
-            res.status(200).send("User Signup Successful")
+            res.status(200).send({message:"User Signup Successful"})
         }
         else{
-            res.status(400).send({"Meassage":"Email Id already exists!"})
+            res.status(400).send({message:"Email Id already exists!"})
         }
     }
     catch(err){
@@ -80,7 +80,7 @@ export const ForgotPassword = async(req,res)=>{
     try{
         const find_User = await User.findOne({Email: req.body.Email})
         if(!find_User){
-            res.status(400).send("User not found")
+            res.status(400).send({message:"User not found"})
         }
         else{
             // Generating a random string
@@ -100,7 +100,7 @@ export const ForgotPassword = async(req,res)=>{
                 Name : find_User.Name,
                 Email : find_User.Email
             })
-            const link = `https://passwordreset-bb6e.onrender.com/ResetPassword/${find_User._id}/${ResetString}/${token}`
+            const link = `http://localhost:3000//ResetPassword/${find_User._id}/${ResetString}/${token}`
 
             // for Sending mails - nodemailer
             var transporter = nodemailer.createTransport({
@@ -194,10 +194,10 @@ export const DeleteUser = async(req,res)=>{
         const find_User = await User.findOne({Email: id})
         if(find_User){
             const user = await User.deleteOne({Email:id})
-            res.status(200).send("User deleted successfully!")
+            res.status(200).send({message:"User deleted successfully!"})
         }
         else{
-            res.status(400).send("User not found")
+            res.status(400).send({message:"User not found"})
         }
     }
     catch(err){
