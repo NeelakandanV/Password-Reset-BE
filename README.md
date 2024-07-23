@@ -4,6 +4,10 @@
 
 ## URL - https://passwordreset-bb6e.onrender.com ##
 
+## Features :-
+### bcryptjs - For Password hashing,your data is safe and secure.
+### JWT - For Authorization in our website.
+
 ### Note: Since I'm deployed the apis in render's free tier, The initial request is taking time, Please wait little longer for initial request
 
 
