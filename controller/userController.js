@@ -84,7 +84,7 @@ export const ForgotPassword = async(req,res)=>{
         }
         else{
             // Generating a random string
-            const String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*"
+            const String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
             const ResetStringLength = 6;  //string length we want
             const StringLength = String.length;
             let ResetString ="";
