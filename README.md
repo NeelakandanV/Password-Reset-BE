@@ -4,6 +4,10 @@
 
 ## URL - https://passwordreset-bb6e.onrender.com ##
 
+## Features :-
+### bcryptjs - For Password hashing,your data is safe and secure.
+### JWT - For Authorization in our website.
+
 ### Note: Since I'm deployed the apis in render's free tier, The initial request is taking time, Please wait little longer for initial request
 
 
@@ -32,13 +36,13 @@ Description : This method generates a random string and stores in database for l
              It allows sends email with reset link(Using ***Nodemailer***) for the verified user
 
 ## Reset Password link
-### https://passwordreset-bb6e.onrender.com/:id/:pin/:token - GET method<br/>
+### https://passwordreset-bb6e.onrender.com/ResetPassword/:id/:pin/:token - GET method<br/>
 Description : This method verifies the random string in database and the link are same.Also verifies the **JsonWebToken** for the link validity.
               This link is valid for 5mins which will allow users to reset password only in that stipulated time.<br/>
               **( id - user Id , pin - randomly generated , token - JWT)**
 
 ## Reset Password 
-### https://passwordreset-bb6e.onrender.com/:id/:pin/:token - PUT method<br/>
+### https://passwordreset-bb6e.onrender.com/ResetPassword/:id/:pin/:token - PUT method<br/>
 Description : After the verification is done in GET method.It will allow users to reset their Pasword and the same will be uploaded in database after deleting the randomly generated string which is used for verification purpose.
  **( id - user Id , pin - randomly generated , token - JWT)**
 
