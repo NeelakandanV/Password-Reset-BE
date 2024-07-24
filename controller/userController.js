@@ -100,7 +100,7 @@ export const ForgotPassword = async(req,res)=>{
                 Name : find_User.Name,
                 Email : find_User.Email
             })
-            const link = `http://localhost:3000/ResetPassword/${find_User._id}/${ResetString}/${token}`
+            const link = `https://passwordresetflw.netlify.app/ResetPassword/${find_User._id}/${ResetString}/${token}`
 
             // for Sending mails - nodemailer
             var transporter = nodemailer.createTransport({
@@ -115,7 +115,7 @@ export const ForgotPassword = async(req,res)=>{
                 from: 'hari1507hari@gmail.com',
                 to: find_User.Email,
                 subject: 'Reset your Password',
-                html:`<p>Kindly click the below link or copy and paste the link in your browser to reset your password.<b>Your Link is valid for only 5 minutes</b></p><a href=${link}>Click here to reset Password</a></br><p></p>copy and paste the link in your browser<p>${link}</p>`
+                html:`<p>Kindly click the below link or copy and paste the link in your browser to reset your password.<b>Your Link is valid for only 5 minutes</b></p><a href=${link}>Click here to reset Password</a></br><label>copy and paste the link in your browser</label><p>${link}</p>`
               };
               
               transporter.sendMail(mailOptions, function(error, info){
